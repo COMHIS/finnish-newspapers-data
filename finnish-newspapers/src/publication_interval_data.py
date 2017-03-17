@@ -97,10 +97,11 @@ def clean_incomplete_datetimes(data):
 
     for i in range(len(data)):
         datetag = re.split("#", data[i])[1]
+        
         if data[i] in date_map:
-            data[i] = data[i].replace(datetag, date_map[data[i]])
+            data[i] = data[i].replace(datetag, date_map[data[i]],1)
         else:
-            data[i] = data[i].replace(datetag, datetag+"#")
+            data[i] = data[i].replace(datetag, datetag+"#",1)
             
 
     return data
@@ -116,5 +117,7 @@ if __name__ == "__main__":
     print(len(data))
     with open("issuedates.csv", "w", encoding="utf-8") as f:
         for row in data:
+            if len(re.split("#", row)) != 5:
+                print(row)
             f.write('"'+'","'.join(re.split("#", row))+'"'+"\n")
 
