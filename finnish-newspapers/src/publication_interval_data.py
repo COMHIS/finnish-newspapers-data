@@ -86,21 +86,23 @@ def clean_incomplete_datetimes(data):
 
     date_map = {}
     for key in no_months:
-        numbers = no_months[key].sort()
+        no_months[key].sort()
         year = re.split("#", key)[-1]
         date_map.update({no_months[key][i]:get_date_for_year(i, no_months[key], year) for i in range(len(no_months[key]))})
 
 
     for key in no_dates:
+        no_dates[key].sort()
         date_tag = re.split("#", key)[-1]
         date_map.update({no_dates[key][i]:get_date_for_month(i, no_dates[key], date_tag) for i in range(len(no_dates[key]))})
 
     for i in range(len(data)):
         datetag = re.split("#", data[i])[1]
+        
         if data[i] in date_map:
-            data[i] = data[i].replace(datetag, date_map[data[i]])
+            data[i] = data[i].replace(datetag, date_map[data[i]],1)
         else:
-            data[i] = data[i].replace(datetag, datetag+"#")
+            data[i] = data[i].replace(datetag, datetag+"#",1)
             
 
     return data
@@ -116,5 +118,7 @@ if __name__ == "__main__":
     print(len(data))
     with open("issuedates.csv", "w", encoding="utf-8") as f:
         for row in data:
+            if len(re.split("#", row)) != 5:
+                print(row)
             f.write('"'+'","'.join(re.split("#", row))+'"'+"\n")
 
