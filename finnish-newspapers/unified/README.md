@@ -1,10 +1,8 @@
 
 Unified data for Finnish newspapers:
 
- * [newspaper_metadata.csv](newspaper_metadata.csv): Core newspaper metadata originally form the Finnish National Library
-  * "ISSN","PAANIMEKE","AINYLEISMAARE","JULKAISUMAA","KIELI","KOKO","KORKEUS_CM","LEVEYS_CM","KUSTANTAJA","TEKSTITYYPPI","start_date","end_date","start_year","end_year","KAUPUNKI_NORM" (what are these?)
- * [censorship_events.csv](censorship_events.csv): Censorship events affecting newspapers from 1800-> 1920 by Jani Marjanen based on Leino-Kaukiainen: Sensuuri ja sananvapaus Suomessa (1980).
-  * start year,end year (both with .5 year precision),name,description
+  * [censorship_events.csv](censorship_events.csv): Censorship events affecting newspapers from 1800-> 1920 by Jani Marjanen based on Leino-Kaukiainen: Sensuuri ja sananvapaus Suomessa (1980).
+    * start year,end year (both with .5 year precision),name,description
  * [finnish_municipalities.csv](finnish_municipalities.csv): Finnish municipalities and their geocoordinates from [aggregation based on Wikipedia](http://datajournalismi.blogspot.fi/2013/03/suomen-kuntien-koordinaattitiedot.html) and updated with data from Google Maps for the municipalities in modern Russia.
  * [circulation_1800-1860.csv](circulation_1800-1860.csv): Circulation data from Tommila: Suomen lehdistön levikki ennen vuotta 1860 (1963), with estimates for select years added by Jani Marjanen. 
    * ISSN, year, circulation, source, qualifier (certain,approximate,partial,???) 
@@ -19,3 +17,5 @@ Unified data for Finnish newspapers:
   * [circulation_areas-utf8.csv](circulation_areas-utf8.csv): Circulation locations data provided by Finnish National Library.
   * [publication_locations-utf8.csv](publication_locations-utf8.csv): Newspaper publication location data provided by Finnish National Library.
   * [newspapers-utf8.csv](newspapers-utf8.csv): Newspaper bibliographic metadata provided by Finnish National Library.
+    * ISSN,TIETOLAHDE,P_ARTIKKELI,PAANIMEKE,M_ARTIKKELI,MUUNIMEKETIETO,AINYLEISMAARE,SANOMALEHTILUOKKA,JULKAISUMAA,KIELI,KOKOELMALAJI,KOKOELMA,VARASTOSIGNUM,KOKO,KORKEUS_CM,LEVEYS_CM,EKORKEUS,ESIVALMISTELUKUVAUS,KUSTANTAJA,JULKAISIJA,ILM_ALPVM,ILM_ALPVM_EPATARKKA,ILM_ALPVM_SUL,ILM_LOPVM,ILM_LOPVM_EPATARKKA,ILM_LOPVM_SUL,JULKAJAN_LISAMAARE,HIST_ALPVM,HIST_ALPVM_EPATARKKA,HIST_ALPVM_SUL,SARJAN_ISSN,S_ARTIKKELI,SARJAN_PAANIMEKE,SM_ARTIKKELI,SARJAN_MUU_NIMEKETIETO,SARJAN_TEKIJA,SARJAN_SIS_NUMEROINTI,A_ARTIKKELI,ALKUKIEL_JULK,PAAJULKAISUN_ISSN,PJ_ARTIKKELI,PAAJULKAISUN_NIMI,HUOMAUTUSKENTTA,TEKSTITYYPPI,HIST_LOPVM,HIST_LOPVM_EPATARKKA,HIST_LOPVM_SUL,FENNICA_ILMLOPVM (what are these?)
+
