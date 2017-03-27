@@ -14,8 +14,12 @@ Unified data for Finnish newspapers:
  * [political_affiliations.csv](1905newspapers_parties.csv): Party affiliations for newspapers in 1905. Data provided by [Risto Turunen](http://www.uta.fi/yky/en/contact/personnel/ristoturunen). A newspaper may have multiple affiliations.
    * issn,affiliation,year
   * [circulation-utf8.csv](circulation-utf8.csv): Circulation data gathered by Finnish National Library, mainly based on Suomen lehdistön historia (1985-1992).
+    * based on [lehtien_levikki.zip/levikki.csv](/finnish-newspapers/originals/lehtien_levikki.zip)
   * [circulation_areas-utf8.csv](circulation_areas-utf8.csv): Circulation locations data provided by Finnish National Library.
+    * based on [lehtien_levikki.zip/levikkialueet.csv](/finnish-newspapers/originals/lehtien_levikki.zip)
   * [publication_locations-utf8.csv](publication_locations-utf8.csv): Newspaper publication location data provided by Finnish National Library.
+    * based on [lehtien_levikki.zip/ilmestymispaikat.csv](/finnish-newspapers/originals/lehtien_levikki.zip)
   * [newspapers-utf8.csv](newspapers-utf8.csv): Newspaper bibliographic metadata provided by Finnish National Library.
     * ISSN,TIETOLAHDE,P_ARTIKKELI,PAANIMEKE,M_ARTIKKELI,MUUNIMEKETIETO,AINYLEISMAARE,SANOMALEHTILUOKKA,JULKAISUMAA,KIELI,KOKOELMALAJI,KOKOELMA,VARASTOSIGNUM,KOKO,KORKEUS_CM,LEVEYS_CM,EKORKEUS,ESIVALMISTELUKUVAUS,KUSTANTAJA,JULKAISIJA,ILM_ALPVM,ILM_ALPVM_EPATARKKA,ILM_ALPVM_SUL,ILM_LOPVM,ILM_LOPVM_EPATARKKA,ILM_LOPVM_SUL,JULKAJAN_LISAMAARE,HIST_ALPVM,HIST_ALPVM_EPATARKKA,HIST_ALPVM_SUL,SARJAN_ISSN,S_ARTIKKELI,SARJAN_PAANIMEKE,SM_ARTIKKELI,SARJAN_MUU_NIMEKETIETO,SARJAN_TEKIJA,SARJAN_SIS_NUMEROINTI,A_ARTIKKELI,ALKUKIEL_JULK,PAAJULKAISUN_ISSN,PJ_ARTIKKELI,PAAJULKAISUN_NIMI,HUOMAUTUSKENTTA,TEKSTITYYPPI,HIST_LOPVM,HIST_LOPVM_EPATARKKA,HIST_LOPVM_SUL,FENNICA_ILMLOPVM (what are these?)
+    * based on [lehtien_levikki.zip/lehti.csv](/finnish-newspapers/originals/lehtien_levikki.zip)
 
