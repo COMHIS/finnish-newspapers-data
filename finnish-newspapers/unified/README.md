@@ -8,3 +8,7 @@ Unified data for Finnish newspapers:
  * [issuedates.csv](issuedates.csv): Every published issue in 1771-1910, with issn, date, note and wordcount. Note refers to estimated date when the data was missing in the original. D is for estimated day and MD for estimated month and day. Generated with [src/publication_interval_data.py](src/publication_interval_data.py) from data downloaded from Kielipankki version of the Newspaper corpus via the KORP API.
  * [political_affiliations.csv](1905newspapers_parties.csv): Party affiliations for newspapers in 1905. Data provided by [Risto Turunen](http://www.uta.fi/yky/en/contact/personnel/ristoturunen). A newspaper may have multiple affiliations.
    * issn,affiliation,year
+  * [circulation-utf8.csv](circulation-utf8.csv): Circulation data gathered by Finnish National Library, mainly based on Suomen lehdistön historia (1985-1992).
+  * [circulation_areas-utf8.csv](circulation_areas-utf8.csv): Circulation locations data provided by Finnish National Library.
+  * [publication_locations-utf8.csv](publication_locations-utf8.csv): Newspaper publication location data provided by Finnish National Library.
+  * [newspapers-utf8.csv](newspapers-utf8.csv): Newspaper bibliographic metadata provided by Finnish National Library.
