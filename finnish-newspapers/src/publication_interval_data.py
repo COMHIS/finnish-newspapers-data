@@ -40,12 +40,15 @@ def parse_key(key):
 
 def clean_unique_issues(data):
     res = {}
+    pages = {}
     for key in data:
         if parse_key(key) not in res:
             res.update({parse_key(key) : data[key]})
+            pages.update({parse_key(key) : 1 })
         else:
             res[parse_key(key)] += data[key]
-    return [x+"#"+str(res[x]) for x in res]
+            pages[parse_key(key)] += 1
+    return [x+"#"+str(res[x])+"#"+str(pages[x]) for x in res]
 
 def get_date_for_year(i, numbers, year):
 
@@ -69,7 +72,7 @@ def clean_incomplete_datetimes(data):
     no_months = {}
     no_dates = {}
     for x in data:
-        issn, date, number, wordcount = re.split("#", x)
+        issn, date, number, wordcount, pagecount = re.split("#", x)
         date_tmp = re.split("-", date)
         if len(date_tmp) == 1:
             if issn+"#"+date_tmp[0] not in no_months:
@@ -108,6 +111,8 @@ def clean_incomplete_datetimes(data):
     return data
 
 
+    
+
 if __name__ == "__main__":
 
     data = open_data([1771, 1910])
@@ -118,7 +123,5 @@ if __name__ == "__main__":
     print(len(data))
     with open("issuedates.csv", "w", encoding="utf-8") as f:
         for row in data:
-            if len(re.split("#", row)) != 5:
-                print(row)
-            f.write('"'+'","'.join(re.split("#", row))+'"'+"\n")
+            f.write('"'+'","'.join(re.split("#", row))+'"\n')
 
