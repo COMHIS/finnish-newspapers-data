@@ -4,4 +4,4 @@ Reuse of the data is licensed according to the [Creative Commons Attribution](ht
 
 Inside this repository, the data is organised as follows:
  * originals -- original data as received from sources
- * processed -- data in the form it is used for analysis
+ * processed -- data in the form it is used for analyses

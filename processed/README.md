@@ -1,24 +1,66 @@
+# Unified data for Finnish newspapers
 
-Unified data for Finnish newspapers:
-
-  * [censorship_events.csv](censorship_events.csv): Censorship events affecting newspapers from 1800-> 1920 by Jani Marjanen based on Leino-Kaukiainen: Sensuuri ja sananvapaus Suomessa (1980).
-    * start year,end year (both with .5 year precision),name,description
- * [finnish_municipalities.csv](finnish_municipalities.csv): Finnish municipalities and their geocoordinates from [aggregation based on Wikipedia](http://datajournalismi.blogspot.fi/2013/03/suomen-kuntien-koordinaattitiedot.html) and updated with data from Google Maps for the municipalities in modern Russia.
- * [circulation_1800-1860.csv](circulation_1800-1860.csv): Circulation data from Tommila: Suomen lehdistön levikki ennen vuotta 1860 (1963), with estimates for select years added by Jani Marjanen. 
-   * ISSN, year, circulation, source, qualifier (certain,approximate,partial,???) 
-   * created with the following mutations from original CSV:
-     * data2 = data %>% select(ISSN,16:76) %>% gather(year,circulation,2:62) %>% mutate(year,year=as.numeric(str_sub(year,9)))
-     * data3 = data2 %>% mutate(source = NA, source = str_match(circulation, "([a-z]+)")[,1], circulation = as.numeric(str_match(circulation, "([0-9]+)")[,1]))
-     * data4 = data3 %>% mutate(qualifier=case_when(.$source=="tap" ~ "partial", .$source=="ca" ~ "approximate", .$source=="ta" ~ "approximate", .$source=="pt" ~ "certain"), source=case_when(.$source=="pt" ~ "Päiviö Tommila", .$source=="tap" ~ "Päiviö Tommila", .$source=="ta" ~ "Päiviö Tommila", .$source=="ca" ~ "COMHIS collective"))
- * [political_affiliations.csv](1905newspapers_parties.csv): Party affiliations for newspapers in 1905. Data provided by [Risto Turunen](http://www.uta.fi/yky/en/contact/personnel/ristoturunen). A newspaper may have multiple affiliations.
-   * issn,affiliation,year
-  * [circulation-utf8.csv](circulation-utf8.csv): Circulation data gathered by Finnish National Library, mainly based on Suomen lehdistön historia (1985-1992).
-    * based on [lehtien_levikki.zip/levikki.csv](/finnish-newspapers/originals/lehtien_levikki.zip)
-  * [circulation_areas-utf8.csv](circulation_areas-utf8.csv): Circulation locations data provided by Finnish National Library.
-    * based on [lehtien_levikki.zip/levikkialueet.csv](/finnish-newspapers/originals/lehtien_levikki.zip)
-  * [publication_locations-utf8.csv](publication_locations-utf8.csv): Newspaper publication location data provided by Finnish National Library.
-    * based on [lehtien_levikki.zip/ilmestymispaikat.csv](/finnish-newspapers/originals/lehtien_levikki.zip)
-  * [newspapers-utf8.csv](newspapers-utf8.csv): Newspaper bibliographic metadata provided by Finnish National Library.
-    * ISSN,TIETOLAHDE,P_ARTIKKELI,PAANIMEKE,M_ARTIKKELI,MUUNIMEKETIETO,AINYLEISMAARE,SANOMALEHTILUOKKA,JULKAISUMAA,KIELI,KOKOELMALAJI,KOKOELMA,VARASTOSIGNUM,KOKO,KORKEUS_CM,LEVEYS_CM,EKORKEUS,ESIVALMISTELUKUVAUS,KUSTANTAJA,JULKAISIJA,ILM_ALPVM,ILM_ALPVM_EPATARKKA,ILM_ALPVM_SUL,ILM_LOPVM,ILM_LOPVM_EPATARKKA,ILM_LOPVM_SUL,JULKAJAN_LISAMAARE,HIST_ALPVM,HIST_ALPVM_EPATARKKA,HIST_ALPVM_SUL,SARJAN_ISSN,S_ARTIKKELI,SARJAN_PAANIMEKE,SM_ARTIKKELI,SARJAN_MUU_NIMEKETIETO,SARJAN_TEKIJA,SARJAN_SIS_NUMEROINTI,A_ARTIKKELI,ALKUKIEL_JULK,PAAJULKAISUN_ISSN,PJ_ARTIKKELI,PAAJULKAISUN_NIMI,HUOMAUTUSKENTTA,TEKSTITYYPPI,HIST_LOPVM,HIST_LOPVM_EPATARKKA,HIST_LOPVM_SUL,FENNICA_ILMLOPVM (what are these?)
-    * based on [lehtien_levikki.zip/lehti.csv](/finnish-newspapers/originals/lehtien_levikki.zip)
-
+- [censorship_events.csv](censorship_events.csv): Censorship events affecting newspapers from 1800-> 1920 by Jani Marjanen based on Leino-Kaukiainen: Sensuuri ja sananvapaus Suomessa (1980).
+  - start year,end year (both with .5 year precision),name,description
+- [finnish_municipalities.csv](finnish_municipalities.csv): Finnish municipalities and their geocoordinates from [aggregation based on Wikipedia](http://datajournalismi.blogspot.fi/2013/03/suomen-kuntien-koordinaattitiedot.html) and updated with data from Google Maps for the municipalities in modern Russia.
+- [circulation_1800-1860.csv](circulation_1800-1860.csv): Circulation data from Tommila: Suomen lehdistön levikki ennen vuotta 1860 (1963), with estimates for select years added by Jani Marjanen.
+  - ISSN, year, circulation, source, qualifier (certain,approximate,partial,???)
+  - created with the following mutations from original CSV:
+    - data2 = data %>% select(ISSN,16:76) %>% gather(year,circulation,2:62) %>% mutate(year,year=as.numeric(str_sub(year,9)))
+    - data3 = data2 %>% mutate(source = NA, source = str_match(circulation, "([a-z]+)")[,1], circulation = as.numeric(str_match(circulation, "([0-9]+)")[,1]))
+    - data4 = data3 %>% mutate(qualifier=case_when(.$source=="tap" ~ "partial", .$source=="ca" ~ "approximate", .$source=="ta" ~ "approximate", .$source=="pt" ~ "certain"), source=case_when(.$source=="pt" ~ "Päiviö Tommila", .$source=="tap" ~ "Päiviö Tommila", .$source=="ta" ~ "Päiviö Tommila", .$source=="ca" ~ "COMHIS collective"))
+- [political_affiliations.csv](1905newspapers_parties.csv): Party affiliations for newspapers in 1905. Data provided by [Risto Turunen](http://www.uta.fi/yky/en/contact/personnel/ristoturunen). A newspaper may have multiple affiliations.
+  - issn,affiliation,year
+- [circulation-utf8.csv](circulation-utf8.csv): Circulation data gathered by Finnish National Library, mainly based on Suomen lehdistön historia (1985-1992).
+  - based on [lehtien_levikki.zip/levikki.csv](/finnish-newspapers/originals/lehtien_levikki.zip)
+- [circulation_areas-utf8.csv](circulation_areas-utf8.csv): Circulation locations data provided by Finnish National Library.
+  - based on [lehtien_levikki.zip/levikkialueet.csv](/finnish-newspapers/originals/lehtien_levikki.zip)
+- [publication_locations-utf8.csv](publication_locations-utf8.csv): Newspaper publication location data provided by Finnish National Library.
+  - based on [lehtien_levikki.zip/ilmestymispaikat.csv](/finnish-newspapers/originals/lehtien_levikki.zip)
+- [newspapers-utf8.csv](newspapers-utf8.csv): Newspaper bibliographic metadata provided by Finnish National Library.
+  - ISSN,TIETOLAHDE,P_ARTIKKELI,PAANIMEKE,M_ARTIKKELI,MUUNIMEKETIETO,AINYLEISMAARE,SANOMALEHTILUOKKA,JULKAISUMAA,KIELI,KOKOELMALAJI,KOKOELMA,VARASTOSIGNUM,KOKO,KORKEUS_CM,LEVEYS_CM,EKORKEUS,ESIVALMISTELUKUVAUS,KUSTANTAJA,JULKAISIJA,ILM_ALPVM,ILM_ALPVM_EPATARKKA,ILM_ALPVM_SUL,ILM_LOPVM,ILM_LOPVM_EPATARKKA,ILM_LOPVM_SUL,JULKAJAN_LISAMAARE,HIST_ALPVM,HIST_ALPVM_EPATARKKA,HIST_ALPVM_SUL,SARJAN_ISSN,S_ARTIKKELI,SARJAN_PAANIMEKE,SM_ARTIKKELI,SARJAN_MUU_NIMEKETIETO,SARJAN_TEKIJA,SARJAN_SIS_NUMEROINTI,A_ARTIKKELI,ALKUKIEL_JULK,PAAJULKAISUN_ISSN,PJ_ARTIKKELI,PAAJULKAISUN_NIMI,HUOMAUTUSKENTTA,TEKSTITYYPPI,HIST_LOPVM,HIST_LOPVM_EPATARKKA,HIST_LOPVM_SUL,FENNICA_ILMLOPVM (what are these?)
+  - based on [lehtien_levikki.zip/lehti.csv](/finnish-newspapers/originals/lehtien_levikki.zip)
+- [npcolumns.csv](npcolumns.csv): By-page column number information
+  - issueId,page,wmodecols (area-weighted mode of columns on page),modecols (non-weighted mode of columns),wmediancols (area-weighted median of columns),mediancols (non-weighted median of columns)
+  - Derived from NLF ALTO dumps by [METSALTOMaterialityExtractor](https://github.com/jiemakel/scala-misc/blob/fnewspapers-1/src/main/scala/METSALTOMaterialityExtractor.scala) in version [`fnewspapers-1`](https://github.com/jiemakel/scala-misc/tree/fnewspapers-1) of [jiemakel/scala-misc](https://github.com/jiemakel/scala-misc/) ([![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3381993.svg)](https://doi.org/10.5281/zenodo.3381993)). The ALTO packages used (available from https://digi.kansalliskirjasto.fi/opendata/submit) are the following:
+    - Newspapers 1771-1870 [v1](12.0 GB)
+    - Newspapers 1871-1880 [v1](13.2 GB)
+    - Newspapers 1881-1885 [v1](12.4 GB)
+    - Newspapers 1886-1890 [v1](17.0 GB)
+    - Newspapers 1891-1893 [v1](13.2 GB)
+    - Newspapers 1894-1896 [v1](15.5 GB)
+    - Newspapers 1897-1899 [v1](17.1 GB)
+    - Newspapers 1900-1902 [v1](16.7 GB)
+    - Newspapers 1903-1905 [v1](19.0 GB)
+    - Newspapers 1906-1907 [v1](18.3 GB)
+    - Newspapers 1908-1909 [v1](20.6 GB)
+    - Newspapers 1910 [v1](10.6 GB)
+    - Newspapers 1911 (Jan-Jun) [v1](4.6 GB)
+    - Newspapers 1911 (Jul-Dec) [v1](5.5 GB)
+    - Newspapers 1912-Q1 [v1](2.6 GB)
+    - Newspapers 1912-Q2 [v1](2.7 GB)
+    - Newspapers 1912-Q3 [v1](2.8 GB)
+    - Newspapers 1912-Q4 [v1](2.9 GB)
+    - Newspapers 1913-Q1 [v1](2.8 GB)
+    - Newspapers 1913-Q2 [v1](2.8 GB)
+    - Newspapers 1913-Q3 [v1](2.9 GB)
+    - Newspapers 1913-Q4 [v1](2.9 GB)
+    - Newspapers 1914-Q1 [v1](2.7 GB)
+    - Newspapers 1914-Q2 [v1](2.6 GB)
+    - Newspapers 1914-Q3 [v1](2.6 GB)
+    - Newspapers 1914-Q4 [v1](2.5 GB)
+    - Newspapers 1915-Q1 [v1](2.6 GB)
+    - Newspapers 1915-Q2 [v1](2.5 GB)
+    - Newspapers 1915-Q3 [v1](2.7 GB)
+    - Newspapers 1915-Q4 [v1](2.8 GB)
+    - Newspapers 1916-Q1 [v1](2.7 GB)
+    - Newspapers 1916-Q2 [v1](2.5 GB)
+    - Newspapers 1916-Q3 [v1](2.6 GB)
+    - Newspapers 1916-Q4 [v1](2.7 GB)
+    - Newspapers 1917-Q1 [v1](2.6 GB)
+    - Newspapers 1917-Q2 [v1](2.5 GB)
+    - Newspapers 1917-Q3 [v1](1.9 GB)
+    - Newspapers 1917-Q4 [v1](2.7 GB)
+- [npwordschars.csv](npwordschars.csv): By-page word and character number information.
+  - issueId,page,wmodecols (area-weighted mode of columns on page),modecols (non-weighted mode of columns),wmediancols (area-weighted median of columns),mediancols (non-weighted median of columns)
+  - Derived from the same NLF ALTO dumps mentioned above by [METSALTOMaterialityExtractor](https://github.com/jiemakel/scala-misc/blob/fnewspapers-1/src/main/scala/METSALTOMaterialityExtractor.scala) in version [`fnewspapers-1`](https://github.com/jiemakel/scala-misc/tree/fnewspapers-1) of [jiemakel/scala-misc](https://github.com/jiemakel/scala-misc/) ([![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3381993.svg)](https://doi.org/10.5281/zenodo.3381993))
