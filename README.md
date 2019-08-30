@@ -1,6 +1,7 @@
-# data-public
-Shared data files for various COMHIS-projects and analysis.
+# Data related to Finnish newspapers
 
-Data version snapshots for graphs and publications are nominated by github-tags.
+Reuse of the data is licensed according to the [Creative Commons Attribution](https://creativecommons.org/licenses/by/4.0/) (CC-BY) license. Version snapshots for graphs and publications are nominated by git tags.
 
-**Any use of this data or version of it has to include** a reference to this repository, the COMHIS collective or the creator of the particular dataset as its author, and the data release version.
+Inside this repository, the data is organised as follows:
+ * originals -- original data as received from sources
+ * processed -- data in the form it is used for analysis
