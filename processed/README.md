@@ -64,6 +64,8 @@
 - [npwordschars.csv](npwordschars.csv): By-page word and character number information.
   - issueId,page,wmodecols (area-weighted mode of columns on page),modecols (non-weighted mode of columns),wmediancols (area-weighted median of columns),mediancols (non-weighted median of columns)
   - Derived from the same NLF ALTO dumps mentioned above by [METSALTOMaterialityExtractor](https://github.com/jiemakel/scala-misc/blob/fnewspapers-1/src/main/scala/METSALTOMaterialityExtractor.scala) in version [`fnewspapers-1`](https://github.com/jiemakel/scala-misc/tree/fnewspapers-1) of [jiemakel/scala-misc](https://github.com/jiemakel/scala-misc/) ([![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3381993.svg)](https://doi.org/10.5281/zenodo.3381993))
+- [npsizes.csv](npsizes.csv): By-page page size information.
+  - issueId,page,width (in 10th of mm),height (in 10th of mm)
 - [npissues.csv](npissues.csv): Issue-id to date and ISSN information.
   - issueId,ISSN,date
   - Derived from the same NLF ALTO dumps mentioned above.
